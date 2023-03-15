@@ -51,8 +51,9 @@ function newCoffee(e){
     coffees.forEach(coffee => {
         coffee.id+=1
     })
-    localStorage.setItem('coffeesArr', JSON.stringify(coffees));
-    tbody.innerHTML = renderCoffees(coffees);
+    updateStorage()
+
+    tbody.innerHTML = renderCoffees(coffees); // update the array with the new coffee
 }
 
 
@@ -75,14 +76,17 @@ let coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-let localStorageArr = window.localStorage.setItem('coffeesArr', JSON.stringify(coffees));
-let existing = window.localStorage.getItem('coffeesArr');
-
-if(existing){
-    coffees = JSON.parse(existing)
-}else{
-    coffees = coffees
+function updateStorage() {
+    sessionStorage.setItem('oldCoffees', JSON.stringify(coffees));
 }
+
+window.addEventListener('load', function() {
+    let oldCoffees = JSON.parse(sessionStorage.getItem('oldCoffees'));
+    if (oldCoffees !== null) {
+        coffees = oldCoffees;
+        tbody.innerHTML = renderCoffees(coffees);
+    }
+});
 
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');

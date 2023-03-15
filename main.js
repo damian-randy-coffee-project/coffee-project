@@ -5,11 +5,6 @@ function renderCoffee(coffee) {
 <h1 class="dynamicHmtl">${coffee.name}</h1>
 <p class="dynamicHmtl">${coffee.roast}</p>
 </div>`
-    // '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    // html += '<td>' + coffee.name + '</td>';
-    // html += '<td>' + coffee.roast + '</td>';
-    // html += '</tr>';
 
     return html;
 }
@@ -21,9 +16,7 @@ function renderCoffees(coffees) {
     for(let i=0; i< coffees.length; i++){
         html += renderCoffee(coffees[i])
     }
-    // for(var i = coffees.length - 1; i >= 0; i--) {
-    //     html += renderCoffee(coffees[i]);
-    // }
+
     return html;
 }
 
@@ -33,7 +26,7 @@ function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     let selectedRoast = roastSelection.value;
     let filteredCoffees = [];
-    coffees.forEach(function(coffee) {
+    localStorageArr.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         }
@@ -58,11 +51,13 @@ function newCoffee(e){
     coffees.forEach(coffee => {
         coffee.id+=1
     })
+    localStorage.setItem('coffeesArr', JSON.stringify(coffees));
     tbody.innerHTML = renderCoffees(coffees);
 }
 
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+
 let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -79,6 +74,15 @@ let coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+
+let localStorageArr = window.localStorage.setItem('coffeesArr', JSON.stringify(coffees));
+let existing = window.localStorage.getItem('coffeesArr');
+
+if(existing){
+    coffees = JSON.parse(existing)
+}else{
+    coffees = coffees
+}
 
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');

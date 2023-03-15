@@ -8,87 +8,93 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="page-wrapper">
-    <div class="container justify-center">
-        <div class="row rh">
-            <div class="column align-center justify-bottom title">
-                <div class="coffee-title">
-                    <h1>Coffee!</h1>
+    <div class="page-wrapper">
+        <div class="container justify-center">
+            <div class="row rh">
+                <div class="column align-center justify-bottom title">
+                    <!--Title-->
+                    <div class="coffee-title">
+                        <h1>Coffee!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container grow spacing">
+            <div class="row">
+                <!--   Left Column    -->
+                <div class="column grow">
+                <!--Coffee List -->
+                    <div class="list-columns" id="coffees">
+
+                    </div>
+                <!--  End Coffee List -->
+                </div>
+                <!--   Right Column     -->
+                <div class="column grow">
+                    <div class="row grow">
+                        <div class="column">
+                        <!--     Top form       -->
+                            <form class="form-spacing">
+                                <div class="row">
+                                    <label for="roast-selection">Roast</label>
+                                </div>
+                                <div class="row">
+                                    <select id="roast-selection" class="inputs">
+                                        <option>All</option>
+                                        <option>light</option>
+                                        <option>medium</option>
+                                        <option>dark</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <label for="coffeeNameSearch">Coffee Name</label>
+                                </div>
+                                <div class="row">
+                                    <input type="search" onkeyup="searchUpdateCoffee()" id="coffeeNameSearch"
+                                           class="inputs">
+                                </div>
+                                <div class="row">
+                                    <input id="submit" type="submit" class="inputs"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--   Bottom form      -->
+                    <div class="row grow">
+                        <div class="column grow">
+                            <div class="row justify-center">
+                                <h1>Add a Coffee</h1>
+                            </div>
+
+                            <form>
+                                <div class="row">
+                                    <label for="new-roast-selection">Roast</label>
+                                </div>
+                                <div class="row">
+                                    <select id="new-roast-selection" class="inputs">
+                                        <option>all</option>
+                                        <option>light</option>
+                                        <option>medium</option>
+                                        <option>dark</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <label for="newCoffeeNameSearch">Name</label>
+                                </div>
+                                <div class="row">
+                                    <input type="search" id="newCoffeeNameSearch" class="inputs">
+                                </div>
+                                <div class="row">
+                                    <input id="newCoffeeSubmit" type="submit" class="inputs"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container grow spacing">
-        <div class="row">
-            <div class="column grow">
-                <div class="list-columns" id="coffees">
 
-                </div>
-            </div>
-        <div class="column grow">
-                <div class="row grow">
-                    <div class="column">
-                        <form class="form-spacing">
-                            <div class="row">
-                                <label for="roast-selection">Roast</label>
-                            </div>
-                            <div class="row">
-                                <select id="roast-selection" class="inputs">
-                                    <option>All</option>
-                                    <option>light</option>
-                                    <option>medium</option>
-                                    <option>dark</option>
-                                </select>
-                            </div>
-                            <div class="row">
-                                <label for="coffeeNameSearch">Coffee Name</label>
-                            </div>
-                            <div class="row">
-                                <input type="search" onkeyup="searchUpdateCoffee()" id="coffeeNameSearch" class="inputs">
-                            </div>
-                            <div class="row">
-                                <input id="submit" type="submit" class="inputs" />
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-
-                <div class="row grow">
-                    <div class="column grow">
-                        <div class="row justify-center">
-                            <h1>Add a Coffee</h1>
-                        </div>
-
-                        <form>
-                            <div class="row">
-                                <label for="new-roast-selection">Roast</label>
-                            </div>
-                            <div class="row">
-                                <select id="new-roast-selection" class="inputs">
-                                    <option>all</option>
-                                    <option>light</option>
-                                    <option>medium</option>
-                                    <option>dark</option>
-                                </select>
-                            </div>
-                            <div class="row">
-                                <label for="coffeeNameSearch">Name</label>
-                            </div>
-                            <div class="row">
-                                <input type="search" id="newCoffeeNameSearch" class="inputs">
-                            </div>
-                            <div class="row">
-                                <input id="newCoffeeSubmit" type="submit" class="inputs" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-</div>
-
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

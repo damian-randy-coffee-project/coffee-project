@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body{
+    font-family: 'Roboto';
+}
 table {
     border-collapse: collapse;
     margin: 15px 0;
@@ -15,5 +19,51 @@ label{
     width: 100%;
 }
 .title{
-    align-items: center;
+    border-bottom: 1px solid #F2F2F2;
+}
+.list-columns{
+    column-count: 2;
+    gap: 20px;
+}
+.rh{
+    height: 95px;
+}
+.coffee-title{
+    margin-bottom: 10px;
+}
+.spacing{
+    margin-top: 20px;
+}
+label, input, button {
+    display: block;
+    margin: 5px 0px;
+}
+label{
+    font-weight: 800;
+}
+input[type="text"] {
+    box-shadow: 10px 5px 300px #9DCCF1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+input[type='submit']{
+    background-color: #3D89CB;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    background-color: #164165;
+}
+.dynamicHmtl{
+    display: inline;
+}
+p{
+    color: #99999A;
+}
+.coffee-data{
+    margin-bottom: 20px;
 }

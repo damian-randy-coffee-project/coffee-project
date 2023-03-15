@@ -1,9 +1,9 @@
 "use strict"
 
 function renderCoffee(coffee) {
-    let html = `<div>
-<h1>${coffee.name}</h1>
-<p>${coffee.roast}</p>
+    let html = `<div class="coffee-data">
+<h1 class="dynamicHmtl">${coffee.name}</h1>
+<p class="dynamicHmtl">${coffee.roast}</p>
 </div>`
     // '<tr class="coffee">';
     // html += '<td>' + coffee.id + '</td>';
@@ -15,7 +15,7 @@ function renderCoffee(coffee) {
 }
 
 function renderCoffees(coffees) {
-    var html = '';
+    let html = '';
     coffees = coffees.sort((a,b) =>
         a.id - b.id)
     for(let i=0; i< coffees.length; i++){
@@ -31,8 +31,8 @@ function renderCoffees(coffees) {
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
+    let selectedRoast = roastSelection.value;
+    let filteredCoffees = [];
     coffees.forEach(function(coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
@@ -40,9 +40,30 @@ function updateCoffees(e) {
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
+function searchUpdateCoffee(e) {
+    const searchTerm = searchBar.value;
+    const filteredNames = coffees.filter(coffee =>{
+        return coffee.name.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+
+    tbody.innerHTML = renderCoffees(filteredNames);
+}
+function newCoffee(e){
+    e.preventDefault()
+    let roastValue= newRoastSelection.value
+    let coffeeName= newCoffeeSearch.value
+
+    let coffee = {id: 0, name:coffeeName, roast: roastValue}
+    coffees.unshift(coffee)
+    coffees.forEach(coffee => {
+        coffee.id+=1
+    })
+    tbody.innerHTML = renderCoffees(coffees);
+}
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -59,11 +80,16 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-console.log(coffees)
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
-var roastSelection = document.querySelector('#roast-selection');
-
+let tbody = document.querySelector('#coffees');
+let submitButton = document.querySelector('#submit');
+let newCoffeeSubmit = document.querySelector('#newCoffeeSubmit')
+let roastSelection = document.querySelector('#roast-selection');
+let newRoastSelection = document.querySelector('#new-roast-selection');
+let newCoffeeSearch = document.querySelector('#newCoffeeNameSearch')
+let searchBar = document.querySelector('#coffeeNameSearch')
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+searchBar.addEventListener("input", searchUpdateCoffee);
+newCoffeeSubmit.addEventListener('click', newCoffee)
+

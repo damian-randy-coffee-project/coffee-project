@@ -5,11 +5,6 @@ function renderCoffee(coffee) {
 <h1 class="dynamicHmtl">${coffee.name}</h1>
 <p class="dynamicHmtl">${coffee.roast}</p>
 </div>`
-    // '<tr class="coffee">';
-    // html += '<td>' + coffee.id + '</td>';
-    // html += '<td>' + coffee.name + '</td>';
-    // html += '<td>' + coffee.roast + '</td>';
-    // html += '</tr>';
 
     return html;
 }
@@ -21,9 +16,7 @@ function renderCoffees(coffees) {
     for(let i=0; i< coffees.length; i++){
         html += renderCoffee(coffees[i])
     }
-    // for(var i = coffees.length - 1; i >= 0; i--) {
-    //     html += renderCoffee(coffees[i]);
-    // }
+
     return html;
 }
 
@@ -58,6 +51,7 @@ function newCoffee(e){
     coffees.forEach(coffee => {
         coffee.id+=1
     })
+    localStorage.setItem('coffeesArr', JSON.stringify(coffees));
     tbody.innerHTML = renderCoffees(coffees);
 }
 
@@ -79,6 +73,8 @@ let coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+let localStorageArr = window.localStorage.setItem('coffeesArr', JSON.stringify(coffees));
+let existing = window.localStorage.getItem('coffeesArr');
 
 let tbody = document.querySelector('#coffees');
 let submitButton = document.querySelector('#submit');

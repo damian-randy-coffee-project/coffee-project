@@ -2,7 +2,7 @@
 body{
     font-family: 'Roboto';
     background-color: burlywood;
-    color: #583e04;
+    color: #f8f8f8;
 }
 table {
     border-collapse: collapse;
@@ -30,11 +30,7 @@ label{
 .rh{
     height: 95px;
 }
-.coffee-title{
-    margin-bottom: 10px;
-    font-size: 25px;
-    position: relative;
-}
+
 .spacing{
     margin-top: 20px;
 }
@@ -71,16 +67,28 @@ p{
 .coffee-data{
     margin-bottom: 20px;
 }
+.coffee-title{
+    margin-bottom: 10px;
+    font-size: 25px;
+    position: relative;
+    z-index: 1;
+}
 .title-header {
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    Z-index: 1;
+    position: absolute;
+    top: -270px;
+    left: -235px;
+    Z-index: 2;
+    color: white;
+    font-size: 150px;
 }
 .image {
     margin-bottom: 10px;
 
 }
 .image-margin {
-    margin-top:300px;
+    margin-top:250px;
+}
+.container-color{
+    background-color: #834925;
+    padding: 20px;
 }

@@ -92,3 +92,21 @@ p{
     background-color: #834925;
     padding: 20px;
 }
+.coffee-select-underline {
+    height: 1px;
+    width: 276px;
+    background-color: #F2F2F2;
+    margin: 10px 0;
+}
+.coffee-list-underline{
+    height: 1px;
+    width: 130px;
+    background-color: #F2F2F2;
+    margin: 10px 0;
+}
+.add-coffee-underline{
+    height: 1px;
+    width: 168px;
+    background-color: #F2F2F2;
+    margin: 10px 0;
+}
